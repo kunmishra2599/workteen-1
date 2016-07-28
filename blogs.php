@@ -68,7 +68,7 @@ include 'core/init.php';
 					if (xhr.status == 200 && xhr.readyState == 4) {
 						var obj = JSON.parse(xhr.responseText);
 						for (var i= 0; i < obj.ids.length; i++) {
-							if (obj.ids[i].id.isNan === false) {
+							if (obj.ids[i].id.isNan === undefined) {
 								addBlogPost(obj.ids[i].id);
 							}
 						}
