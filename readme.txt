@@ -1,0 +1,1 @@
+go on core/init.php using text editor to change database configurations according to ur needs
