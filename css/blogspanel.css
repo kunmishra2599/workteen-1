@@ -1,0 +1,158 @@
+body {
+	background-image: url("../img/blog.jpg");
+	font-family: Helvetica;
+}
+
+.sidebar {
+	width: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: #fff;
+	display: block;
+	opacity: 0.7;
+}
+
+.sidebar .button {
+	color: #736E6E;
+	display: block;
+	font-size: 15px;
+	padding: 10px;
+	text-align: center;
+	cursor: pointer;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.sidebar .button:hover {
+	background-color: #F3EAEA;
+	transition: background-color 0.3s;
+}
+
+.workbench {
+	background-color: #fff;
+	border-radius: 10px;
+	display: block;
+	top: 10px;
+	box-sizing: border-box;
+	position: absolute;
+	min-height: 500px;
+}
+
+.workbench h1 {
+	padding: 20px;
+	box-sizing: border-box;
+	color: #736E6E;
+}
+
+.widgetHolder {
+	box-sizing: border-box;
+	padding: 20px;
+	padding-top: 0px;
+}
+
+.widgetHolder .widget{
+    border-radius: 5px;
+    margin-bottom: 10px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.widget .widget-titlebar {
+	height: 20px;
+	box-sizing: border-box;
+	padding: 2px 10px;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
+
+.widget .widget-titlebar h1 {
+	font-size: 15px;
+	float: left;
+	padding: 0;
+}
+
+.widget .widget-titlebar .cross {
+	width: 10px;
+	height: 10px;
+	background-color: #D65C5C;
+	float: right;
+	margin: 2px;
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.widget .widget-content {
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+}
+
+.widget .widget-content input, textarea {
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 10px 5px;
+	padding: 7px;
+}
+
+.widget .widget-content input[type='submit'] {
+	color: #fff;
+	background-color: #3F71AF;
+	cursor: pointer;
+	border-color: #1053A7;
+}
+
+.widget .widget-content .blogpost {
+	padding: 10px;
+	color: #848080;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.widget-content .blogpost .title {
+	float: left;
+}
+
+.widget-content .blogpost .edit {
+	float: right;
+	cursor: pointer;
+	margin: 0 10px;
+}
+
+.widget-content .blogpost .delete {
+	float: right;
+	cursor: pointer;
+	margin: 0 10px;
+}
+
+.widget-content .blogpost .view {
+	float: right;
+	cursor: pointer;
+	margin: 0 10px;
+}
+
+.alert {
+	position: fixed;
+	display: none;
+	z-index: 1000;
+	width: 300px;
+	height: 30px;
+	line-height: 30px;
+	color: #655D3D;
+	box-sizing: border-box;
+	text-align: center;
+	top: 5px;
+	font-size: 13px;
+	left: 50%;
+	margin-left: -150px;
+	border-radius: 5px;
+	border: 1px solid #EAC336;
+	background-color: #F3E160;
+}
