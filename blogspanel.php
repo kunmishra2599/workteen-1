@@ -1,6 +1,8 @@
 <?php
-
+session_start();
 include 'core/init.php';
+if (isset($_SESSION['admin_id'])) {
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +28,8 @@ include 'core/init.php';
 
 	<div class="workbench">
 		<h1>Workbench</h1>
+		<a href="logout.php" class="logout">Logout</a>
+		<div class="clearfix"></div>
 		<div class="widgetHolder">
 			<!--<div class="widget">
 				<div class="widget-titlebar">
@@ -239,3 +243,9 @@ include 'core/init.php';
 	</script>
 </body>
 </html>
+<?php 
+	} else {
+		header("Location: admin.php");
+		exit();
+	}
+?>

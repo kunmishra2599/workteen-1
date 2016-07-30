@@ -12,7 +12,7 @@ function db_create_table($name, $fields) {
     $pk  = '';
 
     foreach($fields as $field => $type) {
-      $sql.= "`$field` $type,";
+      $sql.= "`{$field}` {$type},";
       if (preg_match('/AUTO_INCREMENT/i', $type)) {
         $pk = $field;
       }
@@ -30,7 +30,7 @@ function db_get_table($tableName) {
 		'texts' => array(
 			'texts' =>  array(
 				'id' => 'INT AUTO_INCREMENT',
-				'text' => 'varchar(3000)'
+				'text' => 'varchar(10000)'
 			)
 		),
 		'blogposts' => array(
@@ -41,6 +41,13 @@ function db_get_table($tableName) {
 				'author' => 'INT',
 				'posttext' => 'INT'
 			)
+		),
+		'admins' => array(
+			'admins' => array(
+				'id' => 'INT AUTO_INCREMENT',
+				'admin' => 'varchar(10)',
+				'password' => 'varchar(12)'
+			)	
 		)
 	);
 	db_create_table($tableName, db_get_table_fields($tables[$tableName]));
@@ -83,7 +90,7 @@ function db_search($table, $condition, $values) {
 	if (count($values) > 0) {
 		$i = 1;
 		foreach ($values as $value) {
-			$dbh->bindParam($i, $value);
+			$dbh->bindParam($i, $values[$i-1]);
 			$i++;
 		}
 	}
@@ -237,5 +244,15 @@ function blogpost_db_delete($id) {
 	db_delete($table, $id);
 }
 
-
+/* admin functions */
+function admin_login($admin, $password) {
+	$table = db_get_table('admins');
+	$condition = "WHERE `admin`=? AND `password`=? LIMIT 1";
+	$values = array($admin, $password);
+	$result = db_search($table, $condition, $values);
+	if (count($result) == 1) {
+		return $result[0]['id'];
+	}
+	return false;
+}
 ?>

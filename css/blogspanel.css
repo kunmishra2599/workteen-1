@@ -43,7 +43,22 @@ body {
 .workbench h1 {
 	padding: 20px;
 	box-sizing: border-box;
+	float: left;
 	color: #736E6E;
+}
+
+.workbench a.logout {
+	float: right;
+	color: #736E6E;
+	float: right;
+	box-sizing: border-box;
+	padding: 20px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.workbench a.logout:hover {
+	text-decoration: underline;
 }
 
 .widgetHolder {
