@@ -1,6 +1,8 @@
 <?php
-
+session_start();
 include 'core/init.php';
+if (isset($_SESSION['admin_id'])) {
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +28,8 @@ include 'core/init.php';
 
 	<div class="workbench">
 		<h1>Workbench</h1>
+		<a href="logout.php" class="logout">Logout</a>
+		<div class="clearfix"></div>
 		<div class="widgetHolder">
 			<!--<div class="widget">
 				<div class="widget-titlebar">
@@ -149,7 +153,10 @@ include 'core/init.php';
 					var blogpost = document.createElement('div');
 					blogpost.id = id;
 					blogpost.className = "blogpost";
-					blogpost.innerHTML = "<div class=\"title\">" + obj2.title + "</div><div class=\"edit\">Edit</div><div class=\"delete\">Delete</div><div class=\"view\">View</div><div class=\"clearfix\"></div>";
+					if (obj2.title.length > 30) {
+						var title = obj2.title.slice(0, 30) + '...';
+					}
+					blogpost.innerHTML = "<div class=\"title\">" + title + "</div><div class=\"edit\">Edit</div><div class=\"delete\">Delete</div><div class=\"view\">View</div><div class=\"clearfix\"></div>";
 					widgetContent.appendChild(blogpost);
 					blogpost.getElementsByClassName('view')[0].addEventListener("click", function(){
 						location = '/workteen/blogs.php?id=' + blogpost.id;
@@ -236,3 +243,9 @@ include 'core/init.php';
 	</script>
 </body>
 </html>
+<?php 
+	} else {
+		header("Location: admin.php");
+		exit();
+	}
+?>

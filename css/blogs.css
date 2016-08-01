@@ -96,6 +96,8 @@ body {
 .blogpost p {
   padding: 10px;
   color: #544F4F;
+  line-height: 20px;
+  text-align: justify;
   box-sizing: border-box;
 }
 
